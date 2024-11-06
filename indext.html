@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn English As Your Native Language</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #19374a;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            font-size: 15px;
+            position: sticky; /* Stick at the top */
+            top: 0; /* Stick to the top of the page */
+            width: 100%;
+            z-index: 1000; /* Ensure header stays on top of other content */
+        }
+
+        /* Logo styling */
+        header img {
+            max-height: 50px; /* Adjust this value based on the size of your logo */
+            margin-right: 10px;
+        }
+
+
+        /* Main content section */
+        .content {
+            padding: 20px;
+            padding-top: 50px; /* Make space for sticky header */
+        }
+        nav {
+            background-color: #444444;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            padding: 14px 20px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: rgb(5, 83, 89);
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .word-list {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .word-category {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .word-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+            margin: 5px 0;
+        }
+
+        .english {
+            font-weight: bold;
+        }
+
+        .dari {
+            color: #555;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .section {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2em;
+        }
+
+        #quiz-container {
+            margin-top: 20px;
+        }
+
+        .question {
+            margin: 10px 0;
+        }
+
+        .quiz-answer {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Learn English As Your Native Language</h1>
+        <p>انگلیسی را مثل زبان مادری تان بیاموزید</p>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <a href="#vocabulary">Vocabulary</a>
+        <a href="#grammar">Grammar</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#about">About Me</a>
+    </nav>
+
+    <div class="container">
+        <!-- Vocabulary Section -->
+        <section id="vocabulary" class="section">
+            <h2>Vocabulary</h2>
+            <h3>کلمات انگلسی</h3>
+            <p>Select a letter to learn words starting with that letter.</p>
+            <p>یک حروف را انتخاب کنید که دوست دارید کلمات که به ان حرف شروع میشود یادبیگرید</p>
+            <div>
+                <button onclick="showWords('A')">A</button>
+                <button onclick="showWords('B')">B</button>
+                <button onclick="showWords('C')">C</button>
+                <button onclick="showWords('D')">D</button>
+                <button onclick="showWords('E')">E</button>
+                <button onclick="showWords('F')">F</button>
+                <button onclick="showWords('G')">G</button>
+                <button onclick="showWords('H')">H</button>
+                <button onclick="showWords('I')">I</button>
+                <button onclick="showWords('J')">J</button>
+                <button onclick="showWords('K')">K</button>
+                <button onclick="showWords('L')">L</button>
+                <button onclick="showWords('M')">M</button>
+                <button onclick="showWords('N')">N</button>
+                <button onclick="showWords('O')">O</button>
+                <button onclick="showWords('P')">P</button>
+                <button onclick="showWords('Q')">Q</button>
+                <button onclick="showWords('R')">R</button>
+                <button onclick="showWords('S')">S</button>
+                <button onclick="showWords('T')">T</button>
+                <button onclick="showWords('U')">U</button>
+                <button onclick="showWords('V')">V</button>
+                <button onclick="showWords('W')">W</button>
+                <button onclick="showWords('X')">X</button>
+                <button onclick="showWords('Y')">Y</button>
+                <button onclick="showWords('Z')">Z</button>
+            </div>
+
+            <!-- Word List by Letter -->
+            <div id="wordList" class="word-list">
+                <!-- A section -->
+                <div id="A" class="word-category" style="display:none;">
+                    <div class="word-item"><span class="english">Apple</span><span class="dari">سیب</span></div>
+                    <div class="word-item"><span class="english">Animal</span><span class="dari">حیوان</span></div>
+                    <div class="word-item"><span class="english">Airplane</span><span class="dari">هواپیما</span></div>
+                    <div class="word-item"><span class="english">Answer</span><span class="dari">پاسخ</span></div>
+                    <div class="word-item"><span class="english">Amazing</span><span class="dari">شگفت انگیز</span></div>
+                    <div class="word-item"><span class="english">Add</span><span class="dari">اضافه کردن</span></div>
+                    <div class="word-item"><span class="english">Angry</span><span class="dari">عصبانی</span></div>
+                    <div class="word-item"><span class="english">Artist</span><span class="dari">هنرمند</span></div>
+                    <div class="word-item"><span class="english">Autumn</span><span class="dari">پاییز</span></div>
+                    <div class="word-item"><span class="english">Allow</span><span class="dari">اجازه دادن</span></div>
+                </div>
+
+                <!-- B section -->
+                <div id="B" class="word-category" style="display:none;">
+                    <div class="word-item"><span class="english">Ball</span><span class="dari">توپ</span></div>
+                    <div class="word-item"><span class="english">Book</span><span class="dari">کتاب</span></div>
+                    <div class="word-item"><span class="english">Bird</span><span class="dari">پرنده</span></div>
+                    <div class="word-item"><span class="english">Box</span><span class="dari">جعبه</span></div>
+                    <div class="word-item"><span class="english">Bed</span><span class="dari">تخت خواب</span></div>
+                    <div class="word-item"><span class="english">Brother</span><span class="dari">برادر</span></div>
+                    <div class="word-item"><span class="english">Bicycle</span><span class="dari">دوچرخه</span></div>
+                    <div class="word-item"><span class="english">Beautiful</span><span class="dari">زیبا</span></div>
+                    <div class="word-item"><span class="english">Bottle</span><span class="dari">بطری</span></div>
+                    <div class="word-item"><span class="english">Banana</span><span class="dari">موز</span></div>
+                </div>
+
+                <!-- C section -->
+                <div id="C" class="word-category" style="display:none;">
+                    <div class="word-item"><span class="english">Cat</span><span class="dari">گربه</span></div>
+                    <div class="word-item"><span class="english">Car</span><span class="dari">موتر</span></div>
+                    <div class="word-item"><span class="english">Cake</span><span class="dari">کیک</span></div>
+                    <div class="word-item"><span class="english">Computer</span><span class="dari">کامپیوتر</span></div>
+                    <div class="word-item"><span class="english">Country</span><span class="dari">کشور</span></div>
+                    <div class="word-item"><span class="english">Cold</span><span class="dari">سرد</span></div>
+                    <div class="word-item"><span class="english">Clothes</span><span class="dari">لباس</span></div>
+                    <div class="word-item"><span class="english">Clear</span><span class="dari">واضح</span></div>
+                    <div class="word-item"><span class="english">Class</span><span class="dari">کلاس</span></div>
+                    <div class="word-item"><span class="english">Camera</span><span class="dari">دوربین</span></div>
+                </div>
+
+                <!-- D section -->
+                <div id="D" class="word-category" style="display:none;">
+                    <div class="word-item"><span class="english">Dog</span><span class="dari">سگ</span></div>
+                    <div class="word-item"><span class="english">Door</span><span class="dari">در</span></div>
+                    <div class="word-item"><span class="english">Desk</span><span class="dari">میز</span></div>
+                    <div class="word-item"><span class="english">Dance</span><span class="dari">رقص</span></div>
+                    <div class="word-item"><span class="english">Dream</span><span class="dari">خواب</span></div>
+                    <div class="word-item"><span class="english">Difficult</span><span class="dari">مشکل</span></div>
+                    <div class="word-item"><span class="english">Date</span><span class="dari">تاریخ</span></div>
+                    <div class="word-item"><span class="english">Danger</span><span class="dari">خطر</span></div>
+                    <div class="word-item"><span class="english">Doctor</span><span class="dari">دکتر</span></div>
+                    <div class="word-item"><span class="english">Delicious</span><span class="dari">خوشمزه</span></div>
+                </div>
+
+                <!-- E section -->
+                <div id="E" class="word-category" style="display:none;">
+                    <div class="word-item"><span class="english">Elephant</span><span class="dari">فیل</span></div>
+                    <div class="word-item"><span class="english">Egg</span><span class="dari">تخم مرغ</span></div>
+                    <div class="word-item"><span class="english">Easy</span><span class="dari">آسان</span></div>
+                    <div class="word-item"><span class="english">Eye</span><span class="dari">چشم</span></div>
+                    <div class="word-item"><span class="english">Education</span><span class="dari">تعلیم</span></div>
+                    <div class="word-item"><span class="english">Evening</span><span class="dari">عصر</span></div>
+                    <div class="word-item"><span class="english">Energy</span><span class="dari">انرژی</span></div>
+                    <div class="word-item"><span class="english">Excellent</span><span class="dari">عالی</span></div>
+                    <div class="word-item"><span class="english">Earth</span><span class="dari">زمین</span></div>
+                    <div class="word-item"><span class="english">Envelope</span><span class="dari">پاکت</span></div>
+                </div>
+
+                <!-- F section -->
+                <div id="F" class="word-category" style="display:none;">
+                    <div class="word-item"><span class="english">Friend</span><span class="dari">دوست</span></div>
+                    <div class="word-item"><span class="english">Family</span><span class="dari">خانواده</span></div>
+                    <div class="word-item"><span class="english">Food</span><span class="dari">غذا</span></div>
+                    <div class="word-item"><span class="english">Fast</span><span class="dari">سریع</span></div>
+                    <div class="word-item"><span class="english">Flower</span><span class="dari">گل</span></div>
+                    <div class="word-item"><span class="english">Famous</span><span class="dari">مشهور</span></div>
+                    <div class="word-item"><span class="english">Fear</span><span class="dari">ترس</span></div>
+                    <div class="word-item"><span class="english">Future</span><span class="dari">آینده</span></div>
+                    <div class="word-item"><span class="english">Funny</span><span class="dari">خنده دار</span></div>
+                    <div class="word-item"><span class="english">Football</span><span class="dari">فوتبال</span></div>
+                </div>
+
+                <!-- G section -->
+                <div id="G" class="word-category" style="display:none;">
+                    <div class="word-item"><span class="english">Green</span><span class="dari">سبز</span></div>
+                    <div class="word-item"><span class="english">Gift</span><span class="dari">هدیه</span></div>
+                    <div class="word-item"><span class="english">Good</span><span class="dari">خوب</span></div>
+                    <div class="word-item"><span class="english">Garden</span><span class="dari">باغ</span></div>
+                    <div class="word-item"><span class="english">Great</span><span class="dari">عالی</span></div>
+                    <div class="word-item"><span class="english">Gold</span><span class="dari">طلا</span></div>
+                    <div class="word-item"><span class="english">Game</span><span class="dari">بازی</span></div>
+                    <div class="word-item"><span class="english">Grow</span><span class="dari">رشد کردن</span></div>
+                    <div class="word-item"><span class="english">Goal</span><span class="dari">هدف</span></div>
+                    <div class="word-item"><span class="english">Glad</span><span class="dari">خوشحال</span></div>
+                </div>
+
+                <!-- H section -->
+                <div id="H" class="word-category">
+                    <div class="word-item"><span class="english">House</span><span class="dari">خانه</span></div>
+                    <div class="word-item"><span class="english">Happy</span><span class="dari">خوشحال</span></div>
+                    <div class="word-item"><span class="english">Hand</span><span class="dari">دست</span></div>
+                    <div class="word-item"><span class="english">Hot</span><span class="dari">داغ</span></div>
+                    <div class="word-item"><span class="english">Heart</span><span class="dari">قلب</span></div>
+                    <div class="word-item"><span class="english">Hill</span><span class="dari">تپه</span></div>
+                    <div class="word-item"><span class="english">Hospital</span><span class="dari">بیمارستان</span></div>
+                    <div class="word-item"><span class="english">Hope</span><span class="dari">امید</span></div>
+                    <div class="word-item"><span class="english">Horse</span><span class="dari">اسب</span></div>
+                    <div class="word-item"><span class="english">Hair</span><span class="dari">مو</span></div>
+                </div>
+
+                <!-- I section -->
+                <div id="I" class="word-category">
+                    <div class="word-item"><span class="english">Ice</span><span class="dari">یخ</span></div>
+                    <div class="word-item"><span class="english">Important</span><span class="dari">مهم</span></div>
+                    <div class="word-item"><span class="english">Image</span><span class="dari">تصویر</span></div>
+                    <div class="word-item"><span class="english">Iron</span><span class="dari">آهن</span></div>
+                    <div class="word-item"><span class="english">Idea</span><span class="dari">ایده</span></div>
+                    <div class="word-item"><span class="english">Interest</span><span class="dari">علاقه</span></div>
+                    <div class="word-item"><span class="english">Island</span><span class="dari">جزیره</span></div>
+                    <div class="word-item"><span class="english">Ill</span><span class="dari">بیمار</span></div>
+                    <div class="word-item"><span class="english">Invisible</span><span class="dari">غیرقابل مشاهده</span></div>
+                    <div class="word-item"><span class="english">Invite</span><span class="dari">دعوت کردن</span></div>
+                </div>
+
+                <!-- J section -->
+                <div id="J" class="word-category">
+                    <div class="word-item"><span class="english">Jump</span><span class="dari">پریدن</span></div>
+                    <div class="word-item"><span class="english">Joy</span><span class="dari">خوشی</span></div>
+                    <div class="word-item"><span class="english">Jungle</span><span class="dari">جنگل</span></div>
+                    <div class="word-item"><span class="english">Journey</span><span class="dari">سفر</span></div>
+                    <div class="word-item"><span class="english">Jacket</span><span class="dari">کت</span></div>
+                    <div class="word-item"><span class="english">Judge</span><span class="dari">قاضی</span></div>
+                    <div class="word-item"><span class="english">Jealous</span><span class="dari">حسود</span></div>
+                    <div class="word-item"><span class="english">Job</span><span class="dari">کار</span></div>
+                    <div class="word-item"><span class="english">Juice</span><span class="dari">عصیر</span></div>
+                    <div class="word-item"><span class="english">Justice</span><span class="dari">عدالت</span></div>
+                </div>
+
+                <!-- K section -->
+                <div id="K" class="word-category">
+                    <div class="word-item"><span class="english">Kite</span><span class="dari">بادبادک</span></div>
+                    <div class="word-item"><span class="english">King</span><span class="dari">پادشاه</span></div>
+                    <div class="word-item"><span class="english">Key</span><span class="dari">کلید</span></div>
+                    <div class="word-item"><span class="english">Knife</span><span class="dari">چاقو</span></div>
+                    <div class="word-item"><span class="english">Knowledge</span><span class="dari">دانش</span></div>
+                    <div class="word-item"><span class="english">Kid</span><span class="dari">کودک</span></div>
+                    <div class="word-item"><span class="english">Kind</span><span class="dari">مهربان</span></div>
+                    <div class="word-item"><span class="english">Kiss</span><span class="dari">بوسه</span></div>
+                    <div class="word-item"><span class="english">Knee</span><span class="dari">زانو</span></div>
+                    <div class="word-item"><span class="english">Kitchen</span><span class="dari">آشپزخانه</span></div>
+                </div>
+
+                <!-- K section -->
+                <div id="K" class="word-category">
+                    <div class="word-item"><span class="english">Kite</span><span class="dari">بادبادک</span></div>
+                    <div class="word-item"><span class="english">King</span><span class="dari">پادشاه</span></div>
+                    <div class="word-item"><span class="english">Key</span><span class="dari">کلید</span></div>
+                    <div class="word-item"><span class="english">Knife</span><span class="dari">چاقو</span></div>
+                    <div class="word-item"><span class="english">Knowledge</span><span class="dari">دانش</span></div>
+                    <div class="word-item"><span class="english">Kid</span><span class="dari">کودک</span></div>
+                    <div class="word-item"><span class="english">Kind</span><span class="dari">مهربان</span></div>
+                    <div class="word-item"><span class="english">Kiss</span><span class="dari">بوسه</span></div>
+                    <div class="word-item"><span class="english">Knee</span><span class="dari">زانو</span></div>
+                    <div class="word-item"><span class="english">Kitchen</span><span class="dari">آشپزخانه</span></div>
+                </div>
+
+                <!-- L section -->
+                <div id="L" class="word-category">
+                    <div class="word-item"><span class="english">Lion</span><span class="dari">شیر</span></div>
+                    <div class="word-item"><span class="english">Light</span><span class="dari">نور</span></div>
+                    <div class="word-item"><span class="english">Love</span><span class="dari">عشق</span></div>
+                    <div class="word-item"><span class="english">Look</span><span class="dari">نگاه کردن</span></div>
+                    <div class="word-item"><span class="english">Leg</span><span class="dari">پا</span></div>
+                    <div class="word-item"><span class="english">Lamp</span><span class="dari">لامپ</span></div>
+                    <div class="word-item"><span class="english">Lake</span><span class="dari">دریاچه</span></div>
+                    <div class="word-item"><span class="english">Letter</span><span class="dari">نامه</span></div>
+                    <div class="word-item"><span class="english">Lucky</span><span class="dari">خوش شانس</span></div>
+                    <div class="word-item"><span class="english">Listen</span><span class="dari">گوش دادن</span></div>
+                </div>
+
+                <!-- M section -->
+                <div id="M" class="word-category">
+                    <div class="word-item"><span class="english">Mountain</span><span class="dari">کوه</span></div>
+                    <div class="word-item"><span class="english">Moon</span><span class="dari">ماه</span></div>
+                    <div class="word-item"><span class="english">Man</span><span class="dari">مرد</span></div>
+                    <div class="word-item"><span class="english">Milk</span><span class="dari">شیر</span></div>
+                    <div class="word-item"><span class="english">Monkey</span><span class="dari">میمون</span></div>
+                    <div class="word-item"><span class="english">Market</span><span class="dari">بازار</span></div>
+                    <div class="word-item"><span class="english">Mouse</span><span class="dari">موش</span></div>
+                    <div class="word-item"><span class="english">Magnet</span><span class="dari">مغناطیس</span></div>
+                    <div class="word-item"><span class="english">Morning</span><span class="dari">صبح</span></div>
+                    <div class="word-item"><span class="english">Money</span><span class="dari">پول</span></div>
+                </div>
+
+                <!-- N section -->
+                <div id="N" class="word-category">
+                    <div class="word-item"><span class="english">Night</span><span class="dari">شب</span></div>
+                    <div class="word-item"><span class="english">Nose</span><span class="dari">بینی</span></div>
+                    <div class="word-item"><span class="english">New</span><span class="dari">جدید</span></div>
+                    <div class="word-item"><span class="english">Narrow</span><span class="dari">تنگ</span></div>
+                    <div class="word-item"><span class="english">Name</span><span class="dari">نام</span></div>
+                    <div class="word-item"><span class="english">Nice</span><span class="dari">خوب</span></div>
+                    <div class="word-item"><span class="english">Noise</span><span class="dari">صدا</span></div>
+                    <div class="word-item"><span class="english">Nature</span><span class="dari">طبیعت</span></div>
+                    <div class="word-item"><span class="english">Nation</span><span class="dari">ملت</span></div>
+                    <div class="word-item"><span class="english">Nurse</span><span class="dari">پرستار</span></div>
+                </div>
+
+                <!-- O section -->
+                <div id="O" class="word-category">
+                    <div class="word-item"><span class="english">Ocean</span><span class="dari">دریا</span></div>
+                    <div class="word-item"><span class="english">Open</span><span class="dari">باز</span></div>
+                    <div class="word-item"><span class="english">Old</span><span class="dari">قدیمی</span></div>
+                    <div class="word-item"><span class="english">Office</span><span class="dari">اداره</span></div>
+                    <div class="word-item"><span class="english">Orange</span><span class="dari">پرتقال</span></div>
+                    <div class="word-item"><span class="english">On</span><span class="dari">روی</span></div>
+                    <div class="word-item"><span class="english">Outside</span><span class="dari">بیرون</span></div>
+                    <div class="word-item"><span class="english">Owl</span><span class="dari">جغد</span></div>
+                    <div class="word-item"><span class="english">Offer</span><span class="dari">پیشنهاد</span></div>
+                    <div class="word-item"><span class="english">Over</span><span class="dari">بالا</span></div>
+                </div>
+
+                <!-- P section -->
+                <div id="P" class="word-category">
+                    <div class="word-item"><span class="english">Pen</span><span class="dari">قلم</span></div>
+                    <div class="word-item"><span class="english">Picture</span><span class="dari">تصویر</span></div>
+                    <div class="word-item"><span class="english">Phone</span><span class="dari">تلفن</span></div>
+                    <div class="word-item"><span class="english">Park</span><span class="dari">پارک</span></div>
+                    <div class="word-item"><span class="english">Plane</span><span class="dari">هواپیما</span></div>
+                    <div class="word-item"><span class="english">Problem</span><span class="dari">مشکل</span></div>
+                    <div class="word-item"><span class="english">Poor</span><span class="dari">فقیر</span></div>
+                    <div class="word-item"><span class="english">Person</span><span class="dari">شخص</span></div>
+                    <div class="word-item"><span class="english">Power</span><span class="dari">قدرت</span></div>
+                    <div class="word-item"><span class="english">Play</span><span class="dari">بازی</span></div>
+                </div>
+
+                <!-- Q section -->
+                <div id="Q" class="word-category">
+                    <div class="word-item"><span class="english">Question</span><span class="dari">سوال</span></div>
+                    <div class="word-item"><span class="english">Quick</span><span class="dari">سریع</span></div>
+                    <div class="word-item"><span class="english">Quality</span><span class="dari">کیفیت</span></div>
+                    <div class="word-item"><span class="english">Quiet</span><span class="dari">سکوت</span></div>
+                    <div class="word-item"><span class="english">Quilt</span><span class="dari">لحاف</span></div>
+                    <div class="word-item"><span class="english">Quench</span><span class="dari">تشنگی رفع کردن</span></div>
+                    <div class="word-item"><span class="english">Quickly</span><span class="dari">بسرعت</span></div>
+                    <div class="word-item"><span class="english">Quarter</span><span class="dari">ربع</span></div>
+                    <div class="word-item"><span class="english">Questionnaire</span><span class="dari">پرسشنامه</span></div>
+                    <div class="word-item"><span class="english">Quietly</span><span class="dari">آرام</span></div>
+                </div>
+
+                <!-- R section -->
+                <div id="R" class="word-category">
+                    <div class="word-item"><span class="english">Rain</span><span class="dari">باران</span></div>
+                    <div class="word-item"><span class="english">Road</span><span class="dari">جاده</span></div>
+                    <div class="word-item"><span class="english">Red</span><span class="dari">قرمز</span></div>
+                    <div class="word-item"><span class="english">River</span><span class="dari">رودخانه</span></div>
+                    <div class="word-item"><span class="english">Rock</span><span class="dari">سنگ</span></div>
+                    <div class="word-item"><span class="english">Rabbit</span><span class="dari">خرگوش</span></div>
+                    <div class="word-item"><span class="english">Read</span><span class="dari">خواندن</span></div>
+                    <div class="word-item"><span class="english">Room</span><span class="dari">اتاق</span></div>
+                    <div class="word-item"><span class="english">Right</span><span class="dari">راست</span></div>
+                    <div class="word-item"><span class="english">Rainy</span><span class="dari">بارانی</span></div>
+                </div>
+
+                <!-- S section -->
+                <div id="S" class="word-category">
+                    <div class="word-item"><span class="english">Sun</span><span class="dari">خورشید</span></div>
+                    <div class="word-item"><span class="english">School</span><span class="dari">مدرسه</span></div>
+                    <div class="word-item"><span class="english">Star</span><span class="dari">ستاره</span></div>
+                    <div class="word-item"><span class="english">Small</span><span class="dari">کوچک</span></div>
+                    <div class="word-item"><span class="english">Stone</span><span class="dari">سنگ</span></div>
+                    <div class="word-item"><span class="english">Sugar</span><span class="dari">شکر</span></div>
+                    <div class="word-item"><span class="english">Sit</span><span class="dari">نشستن</span></div>
+                    <div class="word-item"><span class="english">Strong</span><span class="dari">قوی</span></div>
+                    <div class="word-item"><span class="english">Sleep</span><span class="dari">خواب</span></div>
+                    <div class="word-item"><span class="english">Soup</span><span class="dari">سوپ</span></div>
+                </div>
+
+                <!-- T section -->
+                <div id="T" class="word-category">
+                    <div class="word-item"><span class="english">Table</span><span class="dari">میز</span></div>
+                    <div class="word-item"><span class="english">Tree</span><span class="dari">درخت</span></div>
+                    <div class="word-item"><span class="english">Train</span><span class="dari">قطار</span></div>
+                    <div class="word-item"><span class="english">Ticket</span><span class="dari">بلیط</span></div>
+                    <div class="word-item"><span class="english">Time</span><span class="dari">زمان</span></div>
+                    <div class="word-item"><span class="english">Tasty</span><span class="dari">خوشمزه</span></div>
+                    <div class="word-item"><span class="english">Town</span><span class="dari">شهر</span></div>
+                    <div class="word-item"><span class="english">Tired</span><span class="dari">خسته</span></div>
+                    <div class="word-item"><span class="english">Tomorrow</span><span class="dari">فردا</span></div>
+                    <div class="word-item"><span class="english">Tennis</span><span class="dari">تنیس</span></div>
+                </div>
+
+                <!-- U section -->
+                <div id="U" class="word-category">
+                    <div class="word-item"><span class="english">Umbrella</span><span class="dari">چتر</span></div>
+                    <div class="word-item"><span class="english">Up</span><span class="dari">بالا</span></div>
+                    <div class="word-item"><span class="english">Use</span><span class="dari">استفاده کردن</span></div>
+                    <div class="word-item"><span class="english">Under</span><span class="dari">زیر</span></div>
+                    <div class="word-item"><span class="english">Uncle</span><span class="dari">دایی</span></div>
+                    <div class="word-item"><span class="english">University</span><span class="dari">دانشگاه</span></div>
+                    <div class="word-item"><span class="english">Useful</span><span class="dari">مفید</span></div>
+                    <div class="word-item"><span class="english">United</span><span class="dari">متحد</span></div>
+                    <div class="word-item"><span class="english">Uniform</span><span class="dari">یونیفورم</span></div>
+                    <div class="word-item"><span class="english">Uplift</span><span class="dari">بالا بردن</span></div>
+                </div>
+
+                <!-- V section -->
+                <div id="V" class="word-category">
+                    <div class="word-item"><span class="english">Vase</span><span class="dari">گلدان</span></div>
+                    <div class="word-item"><span class="english">Voice</span><span class="dari">صدا</span></div>
+                    <div class="word-item"><span class="english">Van</span><span class="dari">ون</span></div>
+                    <div class="word-item"><span class="english">Village</span><span class="dari">روستا</span></div>
+                    <div class="word-item"><span class="english">Victory</span><span class="dari">پیروزی</span></div>
+                    <div class="word-item"><span class="english">Vegetable</span><span class="dari">سبزیجات</span></div>
+                    <div class="word-item"><span class="english">Visit</span><span class="dari">بازدید</span></div>
+                    <div class="word-item"><span class="english">Vacation</span><span class="dari">تعطیلات</span></div>
+                    <div class="word-item"><span class="english">Value</span><span class="dari">ارزش</span></div>
+                    <div class="word-item"><span class="english">Vine</span><span class="dari">درخت انگور</span></div>
+                </div>
+
+                <!-- W section -->
+                <div id="W" class="word-category">
+                    <div class="word-item"><span class="english">Water</span><span class="dari">آب</span></div>
+                    <div class="word-item"><span class="english">Window</span><span class="dari">پنجره</span></div>
+                    <div class="word-item"><span class="english">World</span><span class="dari">دنیا</span></div>
+                    <div class="word-item"><span class="english">Wind</span><span class="dari">باد</span></div>
+                    <div class="word-item"><span class="english">Walk</span><span class="dari">پیاده روی</span></div>
+                    <div class="word-item"><span class="english">Work</span><span class="dari">کار</span></div>
+                    <div class="word-item"><span class="english">Worm</span><span class="dari">کرم</span></div>
+                    <div class="word-item"><span class="english">Wild</span><span class="dari">وحشی</span></div>
+                    <div class="word-item"><span class="english">Watch</span><span class="dari">ساعت</span></div>
+                    <div class="word-item"><span class="english">Wife</span><span class="dari">همسر</span></div>
+                </div>
+
+                <!-- X section -->
+                <div id="X" class="word-category">
+                    <div class="word-item"><span class="english">X-ray</span><span class="dari">اشعه ایکس</span></div>
+                    <div class="word-item"><span class="english">Xenon</span><span class="dari">زنون</span></div>
+                    <div class="word-item"><span class="english">Xylophone</span><span class="dari">زیلوفون</span></div>
+                    <div class="word-item"><span class="english">Xmas</span><span class="dari">کریسمس</span></div>
+                    <div class="word-item"><span class="english">Xerox</span><span class="dari">زیرکس</span></div>
+                    <div class="word-item"><span class="english">Xenophobia</span><span class="dari">بیگانه‌هراسی</span></div>
+                    <div class="word-item"><span class="english">X-axis</span><span class="dari">محور x</span></div>
+                    <div class="word-item"><span class="english">Xenon lamp</span><span class="dari">لامپ زنون</span></div>
+                    <div class="word-item"><span class="english">Xenial</span><span class="dari">مهمان‌نواز</span></div>
+                    <div class="word-item"><span class="english">Xanthic</span><span class="dari">زرد</span></div>
+                </div>
+
+                <!-- Y section -->
+                <div id="Y" class="word-category">
+                    <div class="word-item"><span class="english">Yellow</span><span class="dari">زرد</span></div>
+                    <div class="word-item"><span class="english">Yogurt</span><span class="dari">ماست</span></div>
+                    <div class="word-item"><span class="english">Yarn</span><span class="dari">ریسمان</span></div>
+                    <div class="word-item"><span class="english">Year</span><span class="dari">سال</span></div>
+                    <div class="word-item"><span class="english">Young</span><span class="dari">جوان</span></div>
+                    <div class="word-item"><span class="english">Yell</span><span class="dari">فریاد زدن</span></div>
+                    <div class="word-item"><span class="english">Yacht</span><span class="dari">قایق</span></div>
+                    <div class="word-item"><span class="english">Yawn</span><span class="dari">یواش یواش باز کردن دهان</span></div>
+                    <div class="word-item"><span class="english">Yolk</span><span class="dari">زرده تخم‌مرغ</span></div>
+                    <div class="word-item"><span class="english">Yummy</span><span class="dari">خوشمزه</span></div>
+                </div>
+
+                <!-- Z section -->
+                <div id="Z" class="word-category">
+                    <div class="word-item"><span class="english">Zoo</span><span class="dari">باغ وحش</span></div>
+                    <div class="word-item"><span class="english">Zebra</span><span class="dari">گورخر</span></div>
+                    <div class="word-item"><span class="english">Zero</span><span class="dari">صفر</span></div>
+                    <div class="word-item"><span class="english">Zip</span><span class="dari">زیپ</span></div>
+                    <div class="word-item"><span class="english">Zone</span><span class="dari">منطقه</span></div>
+                    <div class="word-item"><span class="english">Zinc</span><span class="dari">روی</span></div>
+                    <div class="word-item"><span class="english">Zipper</span><span class="dari">زیپ</span></div>
+                    <div class="word-item"><span class="english">Zigzag</span><span class="dari">زیگزاگ</span></div>
+                    <div class="word-item"><span class="english">Zany</span><span class="dari">دیوانه</span></div>
+                    <div class="word-item"><span class="english">Zeal</span><span class="dari">شور و شوق</span></div>
+                </div>
+
+
+                <!-- More Sections can be added for D-Z -->
+            </div>
+        </section>
+
+        <!-- Grammar Section -->
+        <section id="grammar" class="section">
+            <h2>Grammar Learning</h2>
+            <p><strong>English Sentence Structure:</strong> In English, the basic sentence structure is Subject + Verb + Object.</p>
+            <p><strong>Example:</strong> I (Subject) eat (Verb) apples (Object).</p>
+            <p><strong>Verb Tenses:</strong> English verbs change depending on the time (tense) of the action. Examples include present tense, past tense, and future tense.</p>
+        </section>
+
+        <!-- Grammar Section -->
+<div id="grammar-section">
+    <h2>Grammar Examples</h2>
+    <!-- 1. Sentence Structure (Subject + Verb + Object) -->
+    <h3>1. Sentence Structure (Subject + Verb + Object)</h3>
+    <p><strong>English:</strong> Example: She (subject) eats (verb) an apple (object).</p>
+    <p><strong>Persian:</strong> مثال: او (فعل) یک سیب (مفعول) می خورد.</p>
+    <p><strong>English:</strong> Example: They (subject) play (verb) football (object).</p>
+    <p><strong>Persian:</strong> مثال: آنها (فعل) فوتبال (مفعول) بازی می کنند.</p>
+
+    <!-- 2. Present Simple Tense -->
+    <h3>2. Present Simple Tense</h3>
+    <p><strong>English:</strong> Example: I go to school every day.</p>
+    <p><strong>Persian:</strong> مثال: من هر روز به مکتب می روم.</p>
+    <p><strong>English:</strong> Example: She reads books every evening.</p>
+    <p><strong>Persian:</strong> مثال: او هر شب کتاب می خواند.</p>
+
+    <!-- 3. Present Continuous Tense -->
+    <h3>3. Present Continuous Tense</h3>
+    <p><strong>English:</strong> Example: I am reading a book right now.</p>
+    <p><strong>Persian:</strong> مثال: من الان یک کتاب می خوانم.</p>
+    <p><strong>English:</strong> Example: She is working on a project at the moment.</p>
+    <p><strong>Persian:</strong> مثال: او در حال حاضر روی یک پروژه کار می کند.</p>
+
+    <!-- 4. Past Simple Tense -->
+    <h3>4. Past Simple Tense</h3>
+    <p><strong>English:</strong> Example: I visited Paris last year.</p>
+    <p><strong>Persian:</strong> مثال: من سال گذشته به پاریس سفر کردم.</p>
+    <p><strong>English:</strong> Example: She watched a movie yesterday.</p>
+    <p><strong>Persian:</strong> مثال: او دیروز یک فیلم تماشا کرد.</p>
+
+    <!-- 5. Future Simple Tense -->
+    <h3>5. Future Simple Tense</h3>
+    <p><strong>English:</strong> Example: I will go to the store tomorrow.</p>
+    <p><strong>Persian:</strong> مثال: من فردا به فروشگاه می روم.</p>
+    <p><strong>English:</strong> Example: They will arrive next week.</p>
+    <p><strong>Persian:</strong> مثال: آنها هفته آینده می رسند.</p>
+
+    <!-- 6. Countable vs Uncountable Nouns -->
+    <h3>6. Countable vs Uncountable Nouns</h3>
+    <p><strong>English:</strong> Example: I have three books. (Countable)</p>
+    <p><strong>Persian:</strong> مثال: من سه کتاب دارم. (قابل شمارش)</p>
+    <p><strong>English:</strong> Example: I need some water. (Uncountable)</p>
+    <p><strong>Persian:</strong> مثال: من به آب نیاز دارم. (غیرقابل شمارش)</p>
+
+    <!-- 7. Articles (A, An, The) -->
+    <h3>7. Articles (A, An, The)</h3>
+    <p><strong>English:</strong> Example: A cat is sitting on the roof.</p>
+    <p><strong>Persian:</strong> مثال: یک گربه روی بام نشسته است.</p>
+    <p><strong>English:</strong> Example: The book I was reading is on the shelf.</p>
+    <p><strong>Persian:</strong> مثال: کتابی که من می خواندم روی قفسه است.</p>
+
+    <!-- 8. Pronouns -->
+    <h3>8. Pronouns</h3>
+    <p><strong>English:</strong> Example: He is my friend. (replaces "John")</p>
+    <p><strong>Persian:</strong> مثال: او دوست من است. (جایگزین "جان")</p>
+
+    <!-- 9. Prepositions (In, On, At) -->
+    <h3>9. Prepositions (In, On, At)</h3>
+    <p><strong>English:</strong> Example: In the morning</p>
+    <p><strong>Persian:</strong> مثال: در صبح</p>
+    <p><strong>English:</strong> Example: On the table</p>
+    <p><strong>Persian:</strong> مثال: روی میز</p>
+
+    <!-- 10. Modal Verbs (Can, Should, Must) -->
+    <h3>10. Modal Verbs (Can, Should, Must)</h3>
+    <p><strong>English:</strong> Example: I can speak three languages.</p>
+    <p><strong>Persian:</strong> مثال: من می توانم سه زبان صحبت کنم.</p>
+
+    <!-- 11. Comparative and Superlative Adjectives -->
+    <h3>11. Comparative and Superlative Adjectives</h3>
+    <p><strong>English:</strong> Example: My house is bigger than yours.</p>
+    <p><strong>Persian:</strong> مثال: خانه من از خانه شما بزرگتر است.</p>
+
+    <!-- 12. Question Formation (Wh-Questions) -->
+    <h3>12. Question Formation (Wh-Questions)</h3>
+    <p><strong>English:</strong> Example: What is your name?</p>
+    <p><strong>Persian:</strong> مثال: نام شما چیست؟</p>
+
+    <!-- 13. Negative Sentences -->
+    <h3>13. Negative Sentences</h3>
+    <p><strong>English:</strong> Example: I do not like coffee.</p>
+    <p><strong>Persian:</strong> مثال: من قهوه دوست ندارم.</p>
+
+    <!-- 14. Conjunctions (And, But, Or) -->
+    <h3>14. Conjunctions (And, But, Or)</h3>
+    <p><strong>English:</strong> Example: I like pizza and pasta.</p>
+    <p><strong>Persian:</strong> مثال: من پیتزا و پاستا دوست دارم.</p>
+
+    <!-- 15. Adverbs of Frequency -->
+    <h3>15. Adverbs of Frequency</h3>
+    <p><strong>English:</strong> Example: I always wake up at 7 AM.</p>
+    <p><strong>Persian:</strong> مثال: من همیشه ساعت 7 صبح بیدار می شوم.</p>
+</div>
+
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="section">
+            <h2>Quiz Exercises</h2>
+            <div id="quiz-container">
+                <div class="question">
+                    <p>1. What is the English word for "کتاب"?</p>
+                    <button class="quiz-answer" onclick="alert('Correct! The answer is Book.')">Book</button>
+                    <button class="quiz-answer" onclick="alert('Incorrect! Try again.')">Pen</button>
+                </div>
+                <div class="question">
+                    <p>2. What is the English word for "پرنده"?</p>
+                    <button class="quiz-answer" onclick="alert('Correct! The answer is Bird.')">Bird</button>
+                    <button class="quiz-answer" onclick="alert('Incorrect! Try again.')">Car</button>
+                </div>
+
+<!-- Extended Quiz Section -->
+<div id="quiz-section">
+    <h2>English Quiz</h2>
+    <form id="quiz-form">
+        <!-- Question 1: Vocabulary (Translation) -->
+        <h3>1. Choose the correct translation for the word "tree".</h3>
+        <label>
+            <input type="radio" name="q1" value="A"> A. کتاب
+        </label><br>
+        <label>
+            <input type="radio" name="q1" value="B"> B. درخت
+        </label><br>
+        <label>
+            <input type="radio" name="q1" value="C"> C. خانه
+        </label><br>
+
+        <!-- Question 2: Present Continuous Tense -->
+        <h3>2. Which sentence is in the present continuous tense?</h3>
+        <label>
+            <input type="radio" name="q2" value="A"> A. I eat breakfast every day.
+        </label><br>
+        <label>
+            <input type="radio" name="q2" value="B"> B. I am eating breakfast right now.
+        </label><br>
+        <label>
+            <input type="radio" name="q2" value="C"> C. I will eat breakfast tomorrow.
+        </label><br>
+
+        <!-- Question 3: Preposition -->
+        <h3>3. Which word is a preposition?</h3>
+        <label>
+            <input type="radio" name="q3" value="A"> A. Quickly
+        </label><br>
+        <label>
+            <input type="radio" name="q3" value="B"> B. Under
+        </label><br>
+        <label>
+            <input type="radio" name="q3" value="C"> C. Book
+        </label><br>
+
+        <!-- Question 4: Comparative Adjective -->
+        <h3>4. Which of the following is an example of a comparative adjective?</h3>
+        <label>
+            <input type="radio" name="q4" value="A"> A. Faster
+        </label><br>
+        <label>
+            <input type="radio" name="q4" value="B"> B. Fast
+        </label><br>
+        <label>
+            <input type="radio" name="q4" value="C"> C. Most fast
+        </label><br>
+
+        <!-- Question 5: Negative Sentence -->
+        <h3>5. Choose the correct sentence:</h3>
+        <label>
+            <input type="radio" name="q5" value="A"> A. She don’t like apples.
+        </label><br>
+        <label>
+            <input type="radio" name="q5" value="B"> B. She doesn’t like apples.
+        </label><br>
+        <label>
+            <input type="radio" name="q5" value="C"> C. She isn’t like apples.
+        </label><br>
+
+        <!-- Question 6: Fill in the Blank (Tense) -->
+        <h3>6. Fill in the blank with the correct form of the verb:</h3>
+        <p>I __________ to the store yesterday.</p>
+        <label>
+            <input type="radio" name="q6" value="A"> A. go
+        </label><br>
+        <label>
+            <input type="radio" name="q6" value="B"> B. went
+        </label><br>
+        <label>
+            <input type="radio" name="q6" value="C"> C. going
+        </label><br>
+
+        <!-- Question 7: True/False (Articles) -->
+        <h3>7. True or False: "The" is used when referring to a specific noun.</h3>
+        <label>
+            <input type="radio" name="q7" value="True"> True
+        </label><br>
+        <label>
+            <input type="radio" name="q7" value="False"> False
+        </label><br>
+
+        <!-- Question 8: Choose the Correct Pronoun -->
+        <h3>8. Choose the correct pronoun to complete the sentence:</h3>
+        <p>_____ is my brother.</p>
+        <label>
+            <input type="radio" name="q8" value="A"> A. He
+        </label><br>
+        <label>
+            <input type="radio" name="q8" value="B"> B. She
+        </label><br>
+        <label>
+            <input type="radio" name="q8" value="C"> C. It
+        </label><br>
+
+        <!-- Question 9: Prepositions (In, On, At) -->
+        <h3>9. Which preposition is used for locations?</h3>
+        <label>
+            <input type="radio" name="q9" value="A"> A. In
+        </label><br>
+        <label>
+            <input type="radio" name="q9" value="B"> B. At
+        </label><br>
+        <label>
+            <input type="radio" name="q9" value="C"> C. On
+        </label><br>
+
+        <!-- Question 10: Sentence Structure -->
+        <h3>10. Which sentence has the correct word order?</h3>
+        <label>
+            <input type="radio" name="q10" value="A"> A. Eats apple she an.
+        </label><br>
+        <label>
+            <input type="radio" name="q10" value="B"> B. She eats an apple.
+        </label><br>
+        <label>
+            <input type="radio" name="q10" value="C"> C. An eats apple she.
+        </label><br>
+
+        <br>
+        <button type="button" onclick="checkAnswers()">Submit Quiz</button>
+    </form>
+
+    <div id="quiz-results" style="display: none;">
+        <h3>Quiz Results</h3>
+        <p id="quiz-feedback"></p>
+    </div>
+</div>
+
+<script>
+    function checkAnswers() {
+        let correctAnswers = 0;
+        let feedback = '';
+
+        // Question 1: Translation of "tree"
+        let q1 = document.querySelector('input[name="q1"]:checked');
+        if (q1 && q1.value === 'B') correctAnswers++;
+
+        // Question 2: Present continuous tense
+        let q2 = document.querySelector('input[name="q2"]:checked');
+        if (q2 && q2.value === 'B') correctAnswers++;
+
+        // Question 3: Preposition
+        let q3 = document.querySelector('input[name="q3"]:checked');
+        if (q3 && q3.value === 'B') correctAnswers++;
+
+        // Question 4: Comparative adjective
+        let q4 = document.querySelector('input[name="q4"]:checked');
+        if (q4 && q4.value === 'A') correctAnswers++;
+
+        // Question 5: Negative sentence
+        let q5 = document.querySelector('input[name="q5"]:checked');
+        if (q5 && q5.value === 'B') correctAnswers++;
+
+        // Question 6: Fill in the blank (went)
+        let q6 = document.querySelector('input[name="q6"]:checked');
+        if (q6 && q6.value === 'B') correctAnswers++;
+
+        // Question 7: True/False (Articles)
+        let q7 = document.querySelector('input[name="q7"]:checked');
+        if (q7 && q7.value === 'True') correctAnswers++;
+
+        // Question 8: Pronoun
+        let q8 = document.querySelector('input[name="q8"]:checked');
+        if (q8 && q8.value === 'A') correctAnswers++;
+
+        // Question 9: Prepositions (In, At, On)
+        let q9 = document.querySelector('input[name="q9"]:checked');
+        if (q9 && q9.value === 'B') correctAnswers++;
+
+        // Question 10: Sentence structure
+        let q10 = document.querySelector('input[name="q10"]:checked');
+        if (q10 && q10.value === 'B') correctAnswers++;
+
+        // Provide feedback based on number of correct answers
+        if (correctAnswers === 10) {
+            feedback = 'Excellent! You got all the answers correct!';
+        } else if (correctAnswers >= 7) {
+            feedback = 'Good job! You got ' + correctAnswers + ' out of 10 correct.';
+        } else {
+            feedback = 'Keep practicing! You got ' + correctAnswers + ' out of 10 correct.';
+        }
+
+        // Show the results
+        document.getElementById('quiz-results').style.display = 'block';
+        document.getElementById('quiz-feedback').innerText = feedback;
+    }
+</script>
+
+
+        <!-- About Me Section -->
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <p>My name is Enaiat Yaqobi, and I am from Jaghuri, Afghanistan. I created this website to help people learn English as their native language and improve their vocabulary. I hope this platform helps you in your learning journey.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Learn English As Your Native Language</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function showWords(letter) {
+            // Hide all word categories first
+            const categories = document.querySelectorAll('.word-category');
+            categories.forEach(category => {
+                category.style.display = 'none';
+            });
+
+            // Show the selected category
+            const selectedCategory = document.getElementById(letter);
+            if (selectedCategory) {
+                selectedCategory.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+/* Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header Section */
+header {
+    background-color: #0e6465;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+/* Navigation Menu */
+nav {
+    background-color: #444;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Section Styling */
+.section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+/* Letter Selection */
+.letter-selection {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.letter-selection button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.letter-selection button:hover {
+    background-color: #45a049;
+}
+
+/* Word List Styles */
+.word-list {
+    text-align: center;
+}
+
+.word-category {
+    display: none;
+}
+
+.word-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.english {
+    font-weight: bold;
+    color: #333;
+}
+
+.dari {
+    color: #555;
+    text-align: right;
+}
+
+/* Hover effect for word items */
+.word-item:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* About Me and Footer Section */
+#about, footer {
+    text-align: center;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+}
